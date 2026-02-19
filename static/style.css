@@ -1,0 +1,26 @@
+body {
+    font-family: Arial;
+    margin: 40px;
+    background: #f4f4f4;
+}
+
+.question,
+.result {
+    background: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.correct {
+    border-left: 6px solid green;
+}
+
+.incorrect {
+    border-left: 6px solid red;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Résultats du Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Résultats</h1>
+    <h2>Score : {{ score }}/10</h2>
+
+    {% for r in results %}
+    <div class="result {{ 'correct' if r.is_correct else 'incorrect' }}">
+        <h3>{{ r.question }}</h3>
+        <p>Votre réponse : {{ r.user|join(', ') }}</p>
+        <p>Bonne réponse : {{ r.correct|join(', ') }}</p>
+        <p>{% if r.is_correct %}✅ Correct{% else %}❌ Incorrect{% endif %}</p>
+    </div>
+    {% endfor %}
+
+    <a href="/">Recommencer</a>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quiz Vietnam</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Quiz sur le Vietnam</h1>
+    <form method="POST" action="/submit">
+        {% for q in questions %}
+        <div class="question">
+            <h3>{{ q.question }}</h3>
+            {% for key, value in q.choices.items() %}
+            {% if q.type == "unique" %}
+            <label><input type="radio" name="{{ q.id }}" value="{{ key }}"> {{ key }}) {{ value }}</label><br>
+            {% else %}
+            <label><input type="checkbox" name="{{ q.id }}" value="{{ key }}"> {{ key }}) {{ value }}</label><br>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endfor %}
+        <button type="submit">Valider</button>
+    </form>
+</body>
+
+</html>
